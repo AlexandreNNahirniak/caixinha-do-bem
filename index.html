@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caixinha do bem</title>
+  </head>
+  <body>
+    <header class="topo">
+      <div class="container">
+        <h1>Caixinha do bem</h1>
+        <p>Sistema de registro e consulta de doações solidárias</p>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <div class="container">
+        <button class="aba-btn ativa" data-aba="doacoes">Doações</button>
+        <button class="aba-btn" data-aba="doadores">Doadores</button>
+        <button class="aba-btn" data-aba="itens">Itens Disponíveis</button>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- ABA 1: DOAÇÕES -->
+      <section id="aba-doacoes" class="aba-conteudo ativa">
+        <div class="grid-duplo">
+          <div class="card">
+            <h2>Registrar Nova Doação</h2>
+            <form id="form-doacao">
+              <label for="select-doador">Doador</label>
+              <select id="select-doador" required>
+                <option value="">Selecione um doador...</option>
+              </select>
+
+              <label for="select-item">Item Doado</label>
+              <select id="select-item" required>
+                <option value="">Selecione um item...</option>
+              </select>
+
+              <label for="qtd-doacao">Quantidade</label>
+              <input type="number" id="qtd-doacao" min="1" value="1" required />
+
+              <label for="obs-doacao">Observação (opcional)</label>
+              <input type="text" id="obs-doacao" placeholder="Ex: Entrega na portaria" />
+
+              <button type="submit" class="btn-primario">Confirmar Doação</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Histórico de Doações</h2>
+            <div id="lista-doacoes" class="lista-registros"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABA 2: DOADORES -->
+      <section id="aba-doadores" class="aba-conteudo">
+        <div class="grid-duplo">
+          <div class="card">
+            <h2>Cadastrar Doador</h2>
+            <form id="form-doador">
+              <label for="nome-doador">Nome Completo</label>
+              <input type="text" id="nome-doador" placeholder="Ex: Maria Silva" required />
+
+              <label for="telefone-doador">Telefone / WhatsApp</label>
+              <input type="text" id="telefone-doador" placeholder="Ex: (14) 99999-0000" required />
+
+              <label for="email-doador">E-mail (opcional)</label>
+              <input type="email" id="email-doador" placeholder="maria@email.com" />
+
+              <button type="submit" class="btn-primario">Salvar Doador</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Doadores Cadastrados</h2>
+            <div id="lista-doadores" class="lista-registros"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABA 3: ITENS DISPONÍVEIS -->
+      <section id="aba-itens" class="aba-conteudo">
+        <div class="grid-duplo">
+          <div class="card">
+            <h2>Cadastrar Tipo de Item</h2>
+            <form id="form-item">
+              <label for="nome-item">Nome do Item</label>
+              <input type="text" id="nome-item" placeholder="Ex: Cesta Básica, Agasalho" required />
+
+              <label for="categoria-item">Categoria</label>
+              <select id="categoria-item" required>
+                <option value="Alimentos">Alimentos</option>
+                <option value="Vestuário">Vestuário</option>
+                <option value="Higiene">Higiene e Limpeza</option>
+                <option value="Outros">Outros</option>
+              </select>
+
+              <button type="submit" class="btn-primario">Adicionar Item</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Itens no Catálogo</h2>
+            <div id="lista-itens" class="lista-registros"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>Caixinha do bem — Projeto Extensionista</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
